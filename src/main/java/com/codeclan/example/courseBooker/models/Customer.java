@@ -1,5 +1,7 @@
 package com.codeclan.example.courseBooker.models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,7 @@ public class Customer {
     @Column(name="age")
     private int age;
 
-
+    @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
