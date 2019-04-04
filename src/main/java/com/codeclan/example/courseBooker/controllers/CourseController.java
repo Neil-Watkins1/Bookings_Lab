@@ -1,8 +1,7 @@
 package com.codeclan.example.courseBooker.controllers;
 
-
-import com.codeclan.example.courseBooker.models.Booking;
-import com.codeclan.example.courseBooker.repositories.bookingRepository.BookingRepository;
+import com.codeclan.example.courseBooker.models.Course;
+import com.codeclan.example.courseBooker.repositories.courseRepository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/bookings")
-public class BookingController {
+@RequestMapping(value ="/courses")
+public class CourseController {
 
     @Autowired
-    BookingRepository bookingRepository;
+    CourseRepository courseRepository;
 
     @GetMapping
-    public List<Booking> getAllBookings(){return bookingRepository.findAll();}
+    public List<Course>getAllCourses(){ return courseRepository.findAll();}
 }
