@@ -50,6 +50,9 @@ public class DataLoader implements ApplicationRunner {
         Course course2 = new Course("Ruby is Cool", "Erskine", 3);
         courseRepository.save(course2);
 
+        Course course3 = new Course("Java Script is Fun", "Erskine", 3);
+        courseRepository.save(course3);
+
         Booking booking1 = new Booking("01/06/2019", customer1, course2);
         bookingRepository.save(booking1);
 
