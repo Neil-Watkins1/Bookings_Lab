@@ -16,12 +16,12 @@ public class Booking {
     @Column(name = "date")
     private String  date;
 
-    @JsonIgnoreProperties(value = "booking")
+    @JsonIgnoreProperties("bookings")
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @JsonIgnoreProperties(value = "booking")
+    @JsonIgnoreProperties("bookings")
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
@@ -57,5 +57,13 @@ public class Booking {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }
