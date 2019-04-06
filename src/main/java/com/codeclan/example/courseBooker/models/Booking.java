@@ -14,7 +14,7 @@ public class Booking {
     private Long id;
 
     @Column(name = "date")
-    private String  date;
+    private String date;
 
     @JsonIgnoreProperties("bookings")
     @ManyToOne

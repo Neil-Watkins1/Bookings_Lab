@@ -1,5 +1,6 @@
 package com.codeclan.example.courseBooker.controllers;
 
+import com.codeclan.example.courseBooker.models.Course;
 import com.codeclan.example.courseBooker.models.Customer;
 import com.codeclan.example.courseBooker.repositories.customerRepositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,17 @@ public class CustomerController {
         return customerRepository.findAllCustomersByCourseId(courseId);
     }
 
+    @GetMapping(value = "/ageGT/{age}")
+    List<Customer> findCustomersByAgeGreaterThan(@PathVariable int age){
+        return customerRepository.findCustomersByAgeGreaterThan(age);
+    }
+    @GetMapping(value= "/olderthan/town/{age}/{town}")
+    List<Customer> findCustomersByAgeGreaterThanAndTownLike(@PathVariable int age, @PathVariable String town){
+        return customerRepository.findCustomersByAgeGreaterThanAndTownLike(age, town);
+    }
+    @GetMapping(value = "/olderthan/town/title/{age}/{town}/{title}")
+    List<Customer> findCustomersByAgeGreaterThanAndTownLikeAndBookingsCourseTitleLike(@PathVariable int age, @PathVariable String town, @PathVariable String title){
+        return customerRepository.findCustomersByAgeGreaterThanAndTownLikeAndBookingsCourseTitleLike(age, town, title);
+
+    }
 }
